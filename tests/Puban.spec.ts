@@ -26,6 +26,10 @@ const mutations: Mutation[] = [
   {
     base: "YO ESTOY GRITANDO!!",
     encrypted: "UBOYAYE BESTUBOYUAYE RUBITUBANDUBOGAYE!!"
+  },
+  {
+    base: "Funciona em português, ou não?",
+    encrypted: "Ubuncubionubafaye bemuaye ubortubugubuêspaye, bouuaye ubãonaye?"
   }
 ];
 

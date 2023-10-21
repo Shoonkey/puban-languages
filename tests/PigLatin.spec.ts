@@ -26,6 +26,10 @@ const mutations: Mutation[] = [
   {
     base: "FULLCAPS",
     encrypted: "ULLCAPSFAYE"
+  },
+  {
+    base: "Funciona em português, ou não?",
+    encrypted: "Uncionafaye meaye ortuguêspaye, uoaye ãonaye?"
   }
 ];
 

@@ -1,4 +1,4 @@
-export const DIACRITICS = "áéíóúü";
+export const DIACRITICS = "áâãàäéêẽèëíïóõôöúüû";
 export const VOWELS = `aeiou${DIACRITICS}`;
 
 // Regex for capturing words
