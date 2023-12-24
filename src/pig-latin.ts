@@ -5,6 +5,7 @@ import {
   uncapitalizeStr,
   isFullCaps,
   isUppercaseSentence,
+  isHTTPLink,
 } from "./util";
 
 // Pig Latin suffix
@@ -15,6 +16,9 @@ class PigLatin {
     const uppercaseSentenceFlag = isUppercaseSentence(str);
 
     const output = str.replace(WORD_REGEX, (match) => {
+      if (isHTTPLink(match))
+        return match;
+
       const firstLetter = match[0];
       const remaining = match.substring(1);
 
@@ -43,6 +47,9 @@ class PigLatin {
 
   static decrypt(str: string): string {
     const output = str.replace(WORD_REGEX, (match) => {
+      if (isHTTPLink(match))
+        return match;
+      
       const removedSuffixStr = match.substring(0, match.length - SUFFIX.length);
       const suffixInStr = match.substring(removedSuffixStr.length);
 

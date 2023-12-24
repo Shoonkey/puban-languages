@@ -2,7 +2,7 @@ export const DIACRITICS = "áâãàäéêẽèëíïóõôöúüû";
 export const VOWELS = `aeiou${DIACRITICS}`;
 
 // Regex for capturing words
-export const WORD_REGEX = new RegExp(`[a-z${DIACRITICS}]+`, "gi");
+export const WORD_REGEX = new RegExp(`[a-z${DIACRITICS}:\/\\\\\.]+`, "gi");
 
 export function capitalizeStr(str: string): string {
   return str[0].toUpperCase() + str.substring(1);
@@ -29,4 +29,13 @@ export function isFullCaps(str: string): boolean {
 export function isUppercaseSentence(str: string): boolean {
   const hasAtLeastTwoWords = str.split(/\s+/g, 2).length > 1;
   return hasAtLeastTwoWords && isFullCaps(str);
+}
+
+export function isHTTPLink(str: string): boolean {
+  try {
+    const url = new URL(str);
+    return url.host.length >= 2;
+  } catch (err) {
+    return false;
+  }
 }

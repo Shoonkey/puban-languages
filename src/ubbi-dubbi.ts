@@ -6,6 +6,7 @@ import {
   isFullCaps,
   uncapitalizeStr,
   isUppercaseSentence,
+  isHTTPLink,
 } from "./util";
 
 const REGEXES = {
@@ -48,6 +49,9 @@ class UbbiDubbi {
     const uppercaseSentenceFlag = isUppercaseSentence(str);
 
     return str.replace(REGEXES.WORD_REGEX, (fullWordMatch) => {
+      if (isHTTPLink(fullWordMatch))
+        return fullWordMatch;
+      
       const leadingYMatch = fullWordMatch.match(REGEXES.LEADING_Y);
 
       const addUbMatchingCase = (match: string) => {
@@ -89,6 +93,9 @@ class UbbiDubbi {
     const uppercaseSentenceFlag = isUppercaseSentence(str);
 
     return str.replace(REGEXES.WORD_REGEX, (wordMatch) => {
+      if (isHTTPLink(wordMatch))
+        return wordMatch;
+
       const output = wordMatch.replace(REGEXES.UB_REGEX, "");
 
       // If the sentence is in full caps,
